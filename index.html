@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -18,19 +16,19 @@
             left: 250px;
         }
 
-        .func1{
-
+        .func1 {
         }
 
-        .func1:hover{
-            opacity:0.5;
-        }
+            .func1:hover {
+                opacity: 0.5;
+            }
 
         #firebead2 {
             position: relative;
             top: 100px;
             left: 300px;
         }
+
         .pb2 {
             position: absolute;
             top: 100px;
@@ -63,6 +61,8 @@
                 opacity: 0.5;
             }
 
+
+
         #firebead4 {
             position: relative;
             top: 220px;
@@ -81,6 +81,7 @@
             .func4:hover {
                 opacity: 0.5;
             }
+
 
         #firebead5 {
             position: relative;
@@ -202,7 +203,7 @@
             left: 130px;
         }
 
-        .pb11{ 
+        .pb11 {
             position: absolute;
             top: 100px;
             left: 130px;
@@ -234,200 +235,413 @@
                 opacity: 0.5;
             }
 
-       
+        .choosesection {
+        }
+
+            .choosesection:hover {
+                opacity: 0.5;
+            }
+
+        #clearbutton {
+            padding:50px;
+            background-color:dimgrey;
+            color:white;
+            font-size:30px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+
+        #clearbutton2 {
+            padding:20px;
+            background-color: lightgrey;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width:30%;
+            height:10%;
+        }
+
+            #clearbutton2:hover {
+                opacity: 0.5;
+            }
     </style>
 </head>
 <body>
-    <script type="text/javascript"></script>
-    <section style="display:block;border:5px solid black;">
+    <script type="text/javascript">
+        beadposition = 0; 
+        var lastselectedbeadposition = "1";
+
+        function onclickFunction(e) {
+            var element = e.target || e.srcElement; 
+            idofelement = element.id;
+            var num = idofelement.replace(/[^0-9]/g, '');
+            beadposition = num;
+            concfuncname = 'func' + beadposition;
+
+
+            if (lastselectedbeadposition == beadposition) {
+
+                funcclassName = document.getElementsByClassName(concfuncname);
+                var i;
+                for (i = 0; i < funcclassName.length; i++) {
+                    funcclassName[i].style.border = "1px dashed grey";
+                }
+            }
+            else { 
+
+                funcclassName2 = document.getElementsByClassName("allb");
+                var i;
+                for (i = 0; i < funcclassName2.length; i++) {
+                    funcclassName2[i].style.border = "none";
+                }
+
+                funcclassName3 = document.getElementsByClassName(concfuncname);
+                var i;
+                for (i = 0; i < funcclassName3.length; i++) {
+                    funcclassName3[i].style.border = "1px dashed grey";
+                }
+
+            }
+            lastselectedbeadposition = beadposition;
+        }
+
+        function changeBead(e) {
+            var element = e.target || e.srcElement; 
+            idofelement = element.id; 
+            var text = idofelement.replace(/[0-9]/g, ''); 
+            var concenateStrings2 = 'func' + beadposition; 
+           
+
+            var className = document.getElementsByClassName(concenateStrings2);
+            var i;
+            for (i = 0; i < className.length; i++) {
+                className[i].style.visibility = "hidden"; 
+            }
+
+            var concStrings = text + beadposition;
+            var eleID = document.getElementById(concStrings).style.visibility = "visible";
+        }
+
+        // Change text description 
+        function changeText(e){
+            var element = e.target || e.srcElement; 
+            idofelement = element.id; 
+            var text = idofelement.replace(/[0-9]/g, ''); 
+            if (text == "firered") {
+                document.getElementById("beadName").innerHTML = "Fire Red";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Business, Leadership, Scope of Power";
+                document.getElementById("beadPerfectfor").innerHTML = "Doing business";
+            }
+            else if (text == "lavabead") {
+                document.getElementById("beadName").innerHTML = "Lava Red";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Luck, Self-Confidence";
+                document.getElementById("beadPerfectfor").innerHTML = "Start-up business";
+            }
+            else if (text == "citrinebead") {
+                document.getElementById("beadName").innerHTML = "Citrine";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Bringing wealth & fortune";
+                document.getElementById("beadPerfectfor").innerHTML = "Reducing Karma";
+            }
+            else if (text == "violetbead") {
+                document.getElementById("beadName").innerHTML = "Violet";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Blood circulation, Improved immune system, Detoxing";
+                document.getElementById("beadPerfectfor").innerHTML = "Health";
+            }
+            else if (text == "amberbead") {
+                document.getElementById("beadName").innerHTML = "Amber";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Bringing partial wealth, Reduce pressure";
+                document.getElementById("beadPerfectfor").innerHTML = "Giving you positive strength";
+            }
+            else if (text == "greenbead") {
+                document.getElementById("beadName").innerHTML = "Green";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Peace, Safety";
+                document.getElementById("beadPerfectfor").innerHTML = "Stability";
+            }
+            else if (text == "teabead") {
+                document.getElementById("beadName").innerHTML = "Tea";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Prevent backstabbers, prevent ill mouth, improve your kindness";
+                document.getElementById("beadPerfectfor").innerHTML = "Protection & safety";
+            }
+            else if (text == "purplebead") {
+                document.getElementById("beadName").innerHTML = "Purple";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Stable relationships, beware of cheaters, infidelity, improve men's health";
+                document.getElementById("beadPerfectfor").innerHTML = "Stable relationships";
+            }
+            else if (text == "whitebead") {
+                document.getElementById("beadName").innerHTML = "White";
+                document.getElementById("beadType").innerHTML = "Naga stone";
+                document.getElementById("beadOrigin").innerHTML = "Thailand";
+                document.getElementById("beadProperty").innerHTML = "Improve fighting spirit, boosts your inspiration, judgement, optimism, and fulfillment";
+                document.getElementById("beadPerfectfor").innerHTML = "Creating luck and chances";
+            }
+            else if (text == "kyanitebead") {
+                document.getElementById("beadName").innerHTML = "Blue Kyanite";
+                document.getElementById("beadType").innerHTML = "Gemstone";
+                document.getElementById("beadOrigin").innerHTML = "Brazil";
+                document.getElementById("beadProperty").innerHTML = "Increase your energy, artistic talent & grant you sense and good deals";
+                document.getElementById("beadPerfectfor").innerHTML = "Focused & targeting your problem";
+            }
+            else if (text == "moldavitebead") {
+                document.getElementById("beadName").innerHTML = "Moldavite";
+                document.getElementById("beadType").innerHTML = "Gemstone";
+                document.getElementById("beadOrigin").innerHTML = "Southern Germany";
+                document.getElementById("beadProperty").innerHTML = "Chakra healing, Balancing energy, Bring positive energy";
+                document.getElementById("beadPerfectfor").innerHTML = "Understanding own emotions clearly";
+            }
+            else if (text == "goldenquartzbead") {
+                document.getElementById("beadName").innerHTML = "Golden Quartz";
+                document.getElementById("beadType").innerHTML = "Gemstone";
+                document.getElementById("beadOrigin").innerHTML = "Brazil";
+                document.getElementById("beadProperty").innerHTML = "Fortune & abundance, Enhancing luck";
+                document.getElementById("beadPerfectfor").innerHTML = "Achievement & motivation";
+            }
+        }
+
+        //cleardottedline
+        function clearButton(e) {
+            var className = document.getElementsByClassName("allb");
+            var i;
+            for (i = 0; i < className.length; i++) {
+                className[i].style.border = "none"; 
+            }
+
+        }
+
+    </script>
+    <section style="display:block;border:1px solid black;">
         <div id="position1" class="pb1">
-            <img src="./assets/firered.png" id="firebead1" width="150px" height="150px" class="func1"/>
-            <img src="./assets/lavared.png" id="lavabead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead1" width="150px" height="150px" class="pb1 func1"style="display:none" />
-            <img src="./assets/violet.png" id="violetbead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead1" width="150px" height="150px" class="pb1 func1" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead1" width="150px" height="150px" class="func1 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden;" />
+            <img src="./assets/citrine.png" id="citrinebead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden;" />
+            <img src="./assets/violet.png" id="violetbead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden;" />
+            <img src="./assets/amber.png" id="amberbead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead1" width="150px" height="150px" class="pb1 func1 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position2" class="pb2">
-            <img src="./assets/firered.png" id="firebead2" width="150px" height="150px" class="func2"/>
-            <img src="./assets/lavared.png" id="lavabead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/citrine.png" id="citrinebead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/violet.png" id="violetbead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/amber.png" id="amberbead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/green.png" id="greenbead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/tea.png" id="teabead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/purple.png" id="purplebead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/white.png" id="whitebead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/kyanite.png" id="kyanitebead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/moldavite.png" id="moldavitebead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead2" width="150px" height="150px" class="pb2 func2" style="display:none" />
+            <img src="./assets/firered.png" id="firebead2" width="150px" height="150px" class="func2 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead2" width="150px" height="150px" class="pb2 func2 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position3" class="pb3">
-            <img src="./assets/firered.png" id="firebead3" width="150px" height="150px" class="func3"/>
-            <img src="./assets/lavared.png" id="lavabead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead3" width="150px" height="150px" class="pb3 func3" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead3" width="150px" height="150px" class="func3 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead3" width="150px" height="150px" class="pb3 func3 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position4" class="pb4">
-            <img src="./assets/firered.png" id="firebead4" width="150px" height="150px" class="func4"/>
-            <img src="./assets/lavared.png" id="lavabead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead4" width="150px" height="150px" class="pb4 func4" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead4" width="150px" height="150px" class="func4 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead4" width="150px" height="150px" class="pb4 func4 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position5" class="pb5">
-            <img src="./assets/firered.png" id="firebead5" width="150px" height="150px" class="func5"/>
-            <img src="./assets/lavared.png" id="lavabead5" width="150px" height="150px" class="pb5 func5" style="display:none" />
-            <img src="./assets/citrine.png" id="citrinebead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead5" width="150px" height="150px" class="pb5 func5" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead5" width="150px" height="150px" class="func5 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead5" width="150px" height="150px" class="pb5 func5 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position6" class="pb6">
-            <img src="./assets/firered.png" id="firebead6" width="150px" height="150px" class="func6"/>
-            <img src="./assets/lavared.png" id="lavabead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead6" width="150px" height="150px" class="pb6 func6" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead6" width="150px" height="150px" class="func6 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead6" width="150px" height="150px" class="pb6 func6 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position7" class="pb7">
-            <img src="./assets/firered.png" id="firebead7" width="150px" height="150px" class="func7"/>
-            <img src="./assets/lavared.png" id="lavabead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead7" width="150px" height="150px" class="pb7 func7" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead7" width="150px" height="150px" class="pb7 func7" style="display:none" />
+            <img src="./assets/firered.png" id="firebead7" width="150px" height="150px" class="func7 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead7" width="150px" height="150px" class="pb7 func7 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position8" class="pb8">
-            <img src="./assets/firered.png" id="firebead8" width="150px" height="150px" class="func8"/>
-            <img src="./assets/lavared.png" id="lavabead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead8" width="150px" height="150px" class="pb8 func8" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead8" width="150px" height="150px" class="func8 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead8" width="150px" height="150px" class="pb8 func8 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position9" class="pb9">
-            <img src="./assets/firered.png" id="firebead9" width="150px" height="150px" class="func9"/>
-            <img src="./assets/lavared.png" id="lavabead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead9" width="150px" height="150px" class="pb9 func9" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead9" width="150px" height="150px" class="func9 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead9" width="150px" height="150px" class="pb9 func9 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position10" class="pb10">
-            <img src="./assets/firered.png" id="firebead10" width="150px" height="150px" class="func10"/>
-            <img src="./assets/lavared.png" id="lavabead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead10" width="150px" height="150px" class="pb10 func10" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead10" width="150px" height="150px" class="func10 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead10" width="150px" height="150px" class="pb10 func10 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position11" class="pb11">
-            <img src="./assets/firered.png" id="firebead11" width="150px" height="150px" class="func11"/>
-            <img src="./assets/lavared.png" id="lavabead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead11" width="150px" height="150px" class="pb11 func11" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead11" width="150px" height="150px" class="func11 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead11" width="150px" height="150px" class="pb11 func11 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
         <div id="position12" class="pb12">
-            <img src="./assets/firered.png" id="firebead12" width="150px" height="150px" class="func12"/>
-            <img src="./assets/lavared.png" id="lavabead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/citrine.png" id="citrinebead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/violet.png" id="violetbead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/amber.png" id="amberbead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/green.png" id="greenbead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/tea.png" id="teabead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/purple.png" id="purplebead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/white.png" id="whitebead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/kyanite.png" id="kyanitebead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/moldavite.png" id="moldavitebead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
-            <img src="./assets/goldenquartz.png" id="goldenquartzbead12" width="150px" height="150px" class="pb12 func12" style="display:none"/>
+            <img src="./assets/firered.png" id="firebead12" width="150px" height="150px" class="func12 allb" onclick="onclickFunction(event);" />
+            <img src="./assets/lavared.png" id="lavabead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/citrine.png" id="citrinebead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/violet.png" id="violetbead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/amber.png" id="amberbead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/green.png" id="greenbead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/tea.png" id="teabead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/purple.png" id="purplebead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/white.png" id="whitebead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/kyanite.png" id="kyanitebead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/moldavite.png" id="moldavitebead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
+            <img src="./assets/goldenquartz.png" id="goldenquartzbead12" width="150px" height="150px" class="pb12 func12 allb" onclick="onclickFunction(event);" style="visibility:hidden" />
         </div>
     </section>
-   <!--choosing section-->
+    <!--choosing section-->
     <section style="margin-top:850px; background-color:darkgrey">
-        <div style="padding:50px;">
-            <img src="./assets/firered.png" id="1firebead" width="150px" height="150px" class="choosesection" />
-            <img src="./assets/lavared.png" id="2lavared" width="150px" height="150px" class="choosesection"/>
-            <img src="./assets/citrine.png" id="3citrinebead" width="150px" height="150px" class="choosesection" />
-            <img src="./assets/violet.png" id="4violetbead" width="150px" height="150px" class="choosesection"/>
+        <div id="clearbutton">
+            <b>Customise Your Bracelet!</b>
+            <p>
+                1) Select the position of the beads you want to change from the picture above.<br /><br />
+                2) Select your desired beads below to replace the beads from the picture above.<br /><br />
+                3) Screenshot a picture of your customized bracelete. Send to 8838 7577 or email to illuminous_hub7577@yahoo.com!<br /><br />
+            </p>
+            <p onclick="clearButton(event)" id="clearbutton2">Click here to clear bead selection (dotted line)</p>
         </div>
-        <div style="padding:50px;">
-            <img src="./assets/amber.png" id="5amberbead" width="150px" height="150px" class="choosesection"/>
-            <img src="./assets/green.png" id="6greenbead" width="150px" height="150px" class="choosesection"/>
-            <img src="./assets/tea.png" id="7teabead" width="150px" height="150px" class="choosesection"/>
-            <img src="./assets/purple.png" id="8purplebead" width="150px" height="150px" class="choosesection"/>
+        <div style="float:left;">
+            <div style="padding:50px;">
+                <img src="./assets/firered.png" id="1firebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/lavared.png" id="2lavabead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/citrine.png" id="3citrinebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/violet.png" id="4violetbead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+            </div>
+            <div style="padding:50px;">
+                <img src="./assets/amber.png" id="5amberbead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/green.png" id="6greenbead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/tea.png" id="7teabead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/purple.png" id="8purplebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+            </div>
+            <div style="padding:50px;">
+                <img src="./assets/white.png" id="9whitebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/kyanite.png" id="10kyanitebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/moldavite.png" id="11moldavitebead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+                <img src="./assets/goldenquartz.png" id="12goldenquartzbead" width="150px" height="150px" class="choosesection" onclick="changeText(event);changeBead(event);" style="padding-right:50px;" />
+            </div>
         </div>
-        <div style="padding:50px;">
-            <img src="./assets/white.png" id="9whitebead" width="150px" height="150px" class="choosesection" />
-            <img src="./assets/kyanite.png" id="10kyanitebead" width="150px" height="150px" class="choosesection" />
-            <img src="./assets/moldavite.png" id="11moldavitebead" width="150px" height="150px" class="choosesection"/>
-            <img src="./assets/goldenquartz.png" id="12goldenquartzbead" width="150px" height="150px" class="choosesection" />
+        <!--show stone type-->
+        <div style="font-size:50px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:120px;">
+            <div style="font-size:70px;text-decoration:underline;">
+                <b id="beadName"></b>
+            </div>
+            <br />
+            <div>
+                <b>Type:</b><span id="beadType"></span><br /><br />
+            </div>
+            <div>
+                <b>Origin:</b><span id="beadOrigin"></span><br /><br />
+            </div>
+            <div>
+                <b>Property:</b><span id="beadProperty"></span><br /><br />
+            </div>
+            <div>
+                <b>Perfect for:</b><span id="beadPerfectfor"></span><br /><br />
+            </div>
         </div>
     </section>
 </body>
